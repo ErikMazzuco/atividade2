@@ -1,20 +1,29 @@
-# Atividade 2 - Flutter – Cartão com Efeito de Mola
+# Atividade 2 - Flutter – Cartão com salto físico
 
 Este projeto foi desenvolvido para a disciplina de **Dispositivos Móveis** com o objetivo de demonstrar o uso de **animações físicas no Flutter**, através de um **cartão de produto que salta com efeito de mola** ao ser adicionado ao carrinho.
 
-## Objetivo
+## 🎯 Objetivo 
 
-Aplicar o conceito de **animações com SpringSimulation** utilizando `AnimationController`, com foco em suavidade, resposta física e separação da lógica de animação da UI principal.
+1. Criar um `StatefulWidget` com `SingleTickerProviderStateMixin`.
+2. Em `initState()` , configurar um `SpringSimulation ( mass:1 , stiffness:100 ,
+damping:10)` e inicializar um `AnimationController` sem bounds fixos.
+3. Ao tocar em “Adicionar ao Carrinho”, disparar a simulação via
+`_controller.animateWith(SpringSimulation(spring, 0, 1, 0))`;
+4. Usar um `AnimatedBuilder` para envolver o widget Card e aplicar
+`Transform.translate(offset: Offset(0, -100 * _controller.value))` .
+5. Assegurar o dispose do controller em `dispose()` .
+
 
 ## 🧠 Funcionalidades
 
+- ⚠️ Implementar o Gitpod.
 - 🛍️ Cartão de produto com efeito de mola ao toque.
 - ⚙️ Uso de `SpringSimulation` com `mass: 1`, `stiffness: 100`, `damping: 10`.
 - 🔁 Animação suave com `AnimatedBuilder` e `Transform.translate`.
 - 📱 Layout responsivo e organizado.
 - 🧼 Separação entre lógica e interface com arquitetura modular.
 
-## Estrutura do Projeto
+## 📦 Estrutura do Projeto
 ```
 lib/
 ├── animations/
@@ -30,18 +39,29 @@ lib/
 │       └── splash_screen.dart        # Tela de Carregamento
 └── widgets/                          # Widgets reutilizáveis em várias partes do app
 │       ├── animated_product_card.dart# Card com animação de mola
-│       ├── drawer_wdiget.dart        # Barra lateral
+│       ├── drawer_widget.dart        # Barra lateral
+│       └── appbar_widget.dart        # App bar com carrinho de venda
+
 ├── main.dart                         # Ponto de entrada do aplicativo
 ```
 
-## Instruções para Executar o Aplicativo
+### ▶️ Executar via Web (Gitpod)
 
-Para executar o aplicativo localmente, siga os passos abaixo:
+Abra o projeto direto no navegador usando o Gitpod:  
+[![Abrir no Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ErikMazzuco/atividade2)  
+⚠️ **Requer Flutter Web. Ideal para testes rápidos e leitura do código.**
 
-1. **Clone este repositório** para sua máquina local:
-    ```bash
-    git clone https://github.com/ErikMazzuco/atividade2.git
-    ```
+---
+
+### 💻 Executar Localmente
+
+Siga os passos abaixo para rodar o app na sua máquina:
+
+1. **Clone este repositório:**
+   ```bash
+   git clone https://github.com/ErikMazzuco/atividade2.git
+   cd atividade2
+   ```
 
 2. **Instale o Flutter**:
     Caso ainda não tenha o Flutter instalado, siga as instruções no site oficial: [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
