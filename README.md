@@ -23,6 +23,11 @@ damping:10)` e inicializar um `AnimationController` sem bounds fixos.
 - 📱 Layout responsivo e organizado.
 - 🧼 Separação entre lógica e interface com arquitetura modular.
 
+## 📜 Prototipação
+
+![image](https://github.com/user-attachments/assets/6f512725-ccdd-4c74-9b23-bb4419b419e1)
+
+
 ## 📦 Estrutura do Projeto
 ```
 lib/
